@@ -4,6 +4,9 @@ package com.remindr.io;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.app.ListFragment;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -21,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.app.FragmentManager;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -197,7 +201,7 @@ public class NavigationDrawerFragment extends Fragment {
             mDrawerLayout.closeDrawer(mFragmentContainerView);
         }
         if (mCallbacks != null) {
-            mCallbacks.onNavigationDrawerItemSelected(position);
+            onNavigationDrawerItemSelected(position);
         }
     }
 
@@ -270,6 +274,22 @@ public class NavigationDrawerFragment extends Fragment {
         return getActivity().getActionBar();
     }
 
+    public void onNavigationDrawerItemSelected(int position) {
+        if (position == 0) {
+            Fragment fragment = ListViewFragment.newInstance();
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment).commit();
+        }
+        else if (position == 1) {
+            Fragment fragment = TextViewFragment.newInstance();
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment).commit();
+
+        }
+    }
+
+
+
     /**
      * Callbacks interface that all activities using this fragment must implement.
      */
@@ -277,6 +297,7 @@ public class NavigationDrawerFragment extends Fragment {
         /**
          * Called when an item in the navigation drawer is selected.
          */
-        void onNavigationDrawerItemSelected(int position);
-    }
+        public void onNavigationDrawerItemSelected(int position);
+
+        }
 }
