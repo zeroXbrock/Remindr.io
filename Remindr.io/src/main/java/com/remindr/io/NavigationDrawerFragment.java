@@ -281,7 +281,7 @@ public class NavigationDrawerFragment extends Fragment {
                     .replace(R.id.container, fragment).commit();
         }
         else if (position == 1) {
-            Fragment fragment = TextViewFragment.newInstance();
+            Fragment fragment = MapViewFragment.newInstance();
             getFragmentManager().beginTransaction()
                     .replace(R.id.container, fragment).commit();
 
