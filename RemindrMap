@@ -1,0 +1,209 @@
+{
+  "root": {
+    "id": "uccdpsru",
+    "text": "Remindr",
+    "layout": "map",
+    "children": [
+      {
+        "id": "irqinoip",
+        "text": "Grab data from Twitter",
+        "side": "right",
+        "children": [
+          {
+            "id": "qiperpgq",
+            "text": "add tweets from last two weeks to local app storage and fetch new tweets every hour",
+            "children": [
+              {
+                "id": "bbwrhpsc",
+                "text": "Run primary analysis",
+                "children": [
+                  {
+                    "id": "fjnzlekx",
+                    "text": "Run additional analysis on identified items",
+                    "children": [
+                      {
+                        "id": "jsiyqlif",
+                        "text": "Find locations attached to filtered tweets",
+                        "children": [
+                          {
+                            "id": "rtjseljw",
+                            "text": "Create &nbsp;matched pairs of location/tweet",
+                            "children": [
+                              {
+                                "id": "gguvsptb",
+                                "text": "Add locations and tweets to the map and list views",
+                                "children": [
+                                  {
+                                    "id": "frcpwzjf",
+                                    "text": "Create phone notification&nbsp;"
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "vztpgwph",
+                                "text": "Add matched pair to secondary&nbsp;"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "rmywdssw",
+                        "text": "if 2nd flag, find location&nbsp;"
+                      },
+                      {
+                        "id": "oowvzifh",
+                        "text": "if no 2nd flag, keep in database for 1 week&nbsp;"
+                      },
+                      {
+                        "id": "isesclyo",
+                        "text": "additional analysis looks for flags in same tweet and tweets from that author within the past week&nbsp;"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "coziogav",
+                    "text": "custom flag: offer a condensed information format that requires author conformation&nbsp;"
+                  },
+                  {
+                    "id": "bcrndfes",
+                    "text": "flag analysis:&nbsp;"
+                  },
+                  {
+                    "id": "xuoplhaq",
+                    "text": "scan every tweet in database",
+                    "children": [
+                      {
+                        "id": "nrrlbqvu",
+                        "text": "if primary, run secondary analysis&nbsp;"
+                      },
+                      {
+                        "id": "afzstpox",
+                        "text": "if no primary, delete&nbsp;"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "hoychbqh",
+                "text": "primary flags: City, Venue,"
+              },
+              {
+                "id": "boeoyqnq",
+                "text": "secondary flags: State"
+              },
+              {
+                "id": "yzunfxra",
+                "text": "custom flag: requires author participation&nbsp;"
+              }
+            ]
+          },
+          {
+            "id": "xdoptpjm",
+            "text": "search network and follow new account"
+          }
+        ]
+      },
+      {
+        "id": "fhvzpaco",
+        "text": "Issues",
+        "side": "left",
+        "children": [
+          {
+            "id": "nrubxobk",
+            "text": "event cancellations"
+          },
+          {
+            "id": "wfvsuydc",
+            "text": "battery life&nbsp;"
+          }
+        ]
+      },
+      {
+        "id": "skxgtuns",
+        "text": "string parsing&nbsp;",
+        "side": "right",
+        "children": [
+          {
+            "id": "btexnuqq",
+            "text": "logical analysis&nbsp;"
+          }
+        ]
+      },
+      {
+        "id": "hkdoozbg",
+        "text": "twitter API&nbsp;",
+        "side": "left",
+        "children": [
+          {
+            "id": "cncpcqsv",
+            "text": "OAuth 2&nbsp;"
+          }
+        ]
+      },
+      {
+        "id": "xcnozitn",
+        "text": "Initial App Configurations",
+        "side": "right",
+        "children": [
+          {
+            "id": "zvyitrdb",
+            "text": "create lists of favorites"
+          }
+        ]
+      },
+      {
+        "id": "dcfrgyfm",
+        "text": "save parsed data into sql",
+        "side": "left"
+      },
+      {
+        "id": "vbeciwpo",
+        "text": "Add matched pairs to integrated storage",
+        "side": "right"
+      },
+      {
+        "id": "vlemwyeq",
+        "text": "create map view&nbsp;",
+        "side": "left"
+      },
+      {
+        "id": "riywmtnx",
+        "text": "create list view",
+        "side": "right"
+      },
+      {
+        "id": "srlxxklq",
+        "text": "add matched pair to map view&nbsp;",
+        "side": "left"
+      },
+      {
+        "id": "reoprbwh",
+        "text": "add matched pair to list view&nbsp;",
+        "side": "right"
+      },
+      {
+        "id": "blvlunsu",
+        "text": "Match approved strings with google maps locations",
+        "side": "left"
+      },
+      {
+        "id": "xvweteeq",
+        "text": "create initial login/config screen",
+        "side": "right"
+      },
+      {
+        "id": "xmkoyeoh",
+        "text": "create phone notification",
+        "side": "left"
+      },
+      {
+        "id": "wputrlbk",
+        "text": "icon and color scheme",
+        "side": "left"
+      }
+    ]
+  },
+  "id": "qsqykbxa"
+}
