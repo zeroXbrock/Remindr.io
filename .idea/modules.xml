@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Remindr/Remindr.iml" filepath="$PROJECT_DIR$/Remindr/Remindr.iml" />
       <module fileurl="file://$PROJECT_DIR$/Remindr.io.iml" filepath="$PROJECT_DIR$/Remindr.io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Remindr.io/Remindr.io-Remindr.io.iml" filepath="$PROJECT_DIR$/Remindr.io/Remindr.io-Remindr.io.iml" />
     </modules>
   </component>
 </project>
