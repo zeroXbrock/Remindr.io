@@ -1,25 +1,17 @@
 package com.remindr.io;
 
-import android.app.Activity;
-
 import android.app.ActionBar;
-import android.app.Fragment;
+import android.app.Activity;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 public class MainActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+    String sampleTweet = "I absolutely love being in Portland, OR!";
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -51,8 +43,7 @@ public class MainActivity extends Activity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+                .replace(R.id.container, ListViewFragment.newInstance()).commit();
     }
 
     public void onSectionAttached(int number) {
@@ -62,9 +53,6 @@ public class MainActivity extends Activity
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
                 break;
         }
     }
@@ -102,46 +90,68 @@ public class MainActivity extends Activity
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
+    // isEvent checks an individual tweet to see if it has a location and date
+    // if it does not, it returns false
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
+    public boolean isEvent(String tweetText_inp) {
+        String[] tweetText = tweetText_inp.split(" ");
+        boolean loc = hasLocation(tweetText);
+        boolean date = hasDate(tweetText);
 
-        public PlaceholderFragment() {
-        }
+        if (loc && date)
+            return true;
+        else
+            return false;
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
     }
 
+    public boolean hasLocation(String[] tweetText) {
+        String[] locationList = {"corvallis", "portland", "mcdonald", "wow", "hall", "kelley engineering", "roseland", "theater", "woodburn"};
+        int count = 0;
+        int len = tweetText.length;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < locationList.length; j++) {
+                if (tweetText[i].toLowerCase() == locationList[j]) {
+                    count++;
+                }
+            }
+        }
+        if (count >= 2)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean hasDate(String[] tweetText) {
+        String[] dateList = {"jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"};
+        int len = tweetText.length;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                if (tweetText[i].toLowerCase() == dateList[j])
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    public String returnPlace(String tweet) {
+        String[] tweetText = tweet.split(" ");
+        String out = "";
+        if (isEvent(tweet)) {
+            String[] locationList = {"corvallis", "portland", "mcdonald", "wow", "hall", "kelley engineering", "roseland", "theater", "woodburn"};
+            int count = 0;
+            int len = tweetText.length;
+            for (int i = 0; i < len; i++) {
+                for (int j = 0; j < locationList.length; j++) {
+                    if (tweetText[i].toLowerCase() == locationList[j]) {
+                        out += locationList[j] + " ";
+                    }
+                }
+
+            }
+        }
+        return out;
+
+    }
 }

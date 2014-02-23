@@ -26,12 +26,17 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.app.FragmentManager;
 
+import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.model.*;
+
+
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
 public class NavigationDrawerFragment extends Fragment {
+    static final LatLng PERTH = new LatLng(-31.90, 115.86);
 
     /**
      * Remember the position of the selected item.
@@ -108,7 +113,6 @@ public class NavigationDrawerFragment extends Fragment {
                 new String[]{
                         getString(R.string.title_section1),
                         getString(R.string.title_section2),
-                        getString(R.string.title_section3),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
@@ -276,17 +280,31 @@ public class NavigationDrawerFragment extends Fragment {
 
     public void onNavigationDrawerItemSelected(int position) {
         if (position == 0) {
-            Fragment fragment = ListViewFragment.newInstance();
+            Fragment listFragment = ListViewFragment.newInstance();
             getFragmentManager().beginTransaction()
-                    .replace(R.id.container, fragment).commit();
+                    .replace(R.id.container, listFragment).commit();
         }
         else if (position == 1) {
-            Fragment fragment = MapViewFragment.newInstance();
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.container, fragment).commit();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+            MapViewFragment myFragment = new MapViewFragment();
+            fragmentManager.beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit(); // Replaces current fragment with myFragment, the map
+            fragmentManager.executePendingTransactions();
+
+            //GoogleMap map = myFragment.getMap();
+            GoogleMap myMap = myFragment.getMap();
+
+            if (myMap != null) {
+                new MainActivity().plotFromString(myMap);
+            }
+
+            else {
+                Toast.makeText(getActivity(),"myMap is null",Toast.LENGTH_LONG).show();
+            }
         }
     }
+
 
 
 

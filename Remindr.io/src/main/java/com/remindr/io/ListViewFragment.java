@@ -31,10 +31,9 @@ public class ListViewFragment extends ListFragment {
 
     private static List<String> createDataList(int counts) {
         List<String> list = new ArrayList<String>();
-        list.add("This is the default screen");
-        for (int i = 0; i < counts; i++) {
-            list.add("i=" + i);
-        }
+        list.add("Miley Cyrus is twerking at the Moda Center!");
+        list.add("Justin Beiber is in jail at the Special Handling Unit!");
+        list.add("Barack Obama is chillin' at the White House");
         return list;
     }
 }
