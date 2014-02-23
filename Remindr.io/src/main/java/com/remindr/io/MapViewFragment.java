@@ -12,9 +12,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
-/**
- * Created by evant_000 on 2/22/14.
- */
 public class MapViewFragment extends MapFragment {
 
     public static MapViewFragment newInstance() {

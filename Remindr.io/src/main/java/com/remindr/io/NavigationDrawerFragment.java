@@ -296,7 +296,13 @@ public class NavigationDrawerFragment extends Fragment {
             GoogleMap myMap = myFragment.getMap();
 
             if (myMap != null) {
-                new MainActivity().plotFromString(myMap);
+
+                myMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(45,-123.75))
+                        .title("Test Marker"));
+
+                // TODO: Make this function work!
+                // new NetworkStuff().plotFromString(myMap);
             }
 
             else {

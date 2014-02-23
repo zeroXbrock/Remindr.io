@@ -11,11 +11,20 @@ import android.view.MenuItem;
 public class MainActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    String sampleTweet = "I absolutely love being in Portland, OR!";
+    /* (Sample) array of tweets:
+        - name
+        - text of tweet
+        - computed location (name)
+        - date (yyyy-MM-dd HH:mm:ss)
+
+        Tweets should be in order by date, with most recent first
+     */
+    String[][] tweets = {{"Miley Cyrus","I'm going to be twerking in Portland, OR in a few days!","Portland, OR","2014-02-21 21:24:45"},{"Hackathoner","I've been stuck in Kelly Engineering Center for hours!","Kelly Engineering","2014-02-20 10:21:23"},{"Barack Obama","I had a lovely night off chillin' in the White House with my wife, Michelle","White House","2014-02-19 15:02:34"}};
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
+
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     /**

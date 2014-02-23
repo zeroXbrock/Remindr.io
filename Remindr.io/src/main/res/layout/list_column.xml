@@ -8,6 +8,14 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="text" />
+        android:background="#98b4cc"
+        android:text="text"
+        android:layout_weight="1"
+        android:autoText="false"
+        android:clickable="false"
+        android:padding="5dp"
+        android:textColor="#392918"
+        android:textAppearance="@android:color/holo_blue_bright"
+        android:textSize="18sp" />
 
 </LinearLayout>

@@ -11,9 +11,9 @@ import android.widget.ListView;
 import java.util.List;
 import java.util.ArrayList;
 
-/**
- * Created by evant_000 on 2/22/14.
- */
+// TODO: Rather than using a List, we might want to consider upgrading to a cards-based UI
+// https://github.com/afollestad/Cards-UI/wiki/2.-Intro-Tutorial <-- maybe wtih this library?
+
 public class ListViewFragment extends ListFragment {
 
     public static ListViewFragment newInstance() {
@@ -26,10 +26,10 @@ public class ListViewFragment extends ListFragment {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.list_column, R.id.text);
         setListAdapter(adapter);
-        adapter.addAll(createDataList(100));
+        adapter.addAll(createDataList());
     }
 
-    private static List<String> createDataList(int counts) {
+    private static List<String> createDataList() {
         List<String> list = new ArrayList<String>();
         list.add("Miley Cyrus is twerking at the Moda Center!");
         list.add("Justin Beiber is in jail at the Special Handling Unit!");
